@@ -1,4 +1,4 @@
-# Fst Project App (fst-project)
+# Health Monitor
 
 frontend for an api
 If you run this in your machine you need to cd to src and the change the ip_adreess in the js file to your ip (which normally is where the server is running)
