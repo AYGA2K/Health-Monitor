@@ -4,7 +4,6 @@ import (
 	"log"
 
 	"fst/project/database"
-	"fst/project/middleware"
 	"fst/project/routes"
 	"github.com/gofiber/contrib/websocket"
 	"github.com/gofiber/fiber/v2"
@@ -12,7 +11,7 @@ import (
 )
 
 func welcome(c *fiber.Ctx) error {
-	return c.SendString("Welcome to an Awesome API Mr Kelai")
+	return c.SendString("Welcome to an Awesome API")
 }
 
 func setupRoutes(app *fiber.App) {
@@ -22,7 +21,7 @@ func setupRoutes(app *fiber.App) {
 	// User endpoints
 	app.Post("/api/signup", routes.SignUp)
 	app.Post("/api/login", routes.Login)
-	app.Get("/api/users", middleware.AuthMiddleware, routes.GetUsers)
+	app.Get("/api/users", routes.GetUsers)
 	app.Get("/api/user/:id", routes.GetUser)
 	app.Delete("/api/user/:id", routes.DeleteUser)
 	// Heartbeat Socket

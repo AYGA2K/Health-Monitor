@@ -13,8 +13,6 @@
           </template>
           <template v-else>
             <q-btn size="sm" round class="q-mx-sm" @click="deleteClient(props.row.id)" color="red-14" icon="delete" />
-            <q-btn size="sm" round color="blue-8" @click="editClient(props.row.id)" icon="edit" />
-            <q-btn size="sm" round class="q-mx-sm" color="positive" @click="viewClient(props.row.id)" icon="visibility" />
 
           </template>
         </q-td>
@@ -24,6 +22,7 @@
 </template>
 
 <script lang="ts">
+import { ip } from "src/ip_adress"
 export default {
   data() {
     return {
@@ -36,11 +35,9 @@ export default {
           field: 'mac',
           sortable: true
         },
-            { name: 'nom', align: 'center', label: 'Nom', field: 'nom', sortable: true },
-        { name: 'prenom', label: 'Prenom', field: 'prenom', sortable: true },
-        { name: 'tel', label: 'Tel', field: 'tel' },
-        { name: 'adresse', label: 'Adresse', field: 'adresse' },
-        { name: 'mail', label: 'Mail', field: 'mail' },
+        { name: 'name', align: 'center', label: 'Name', field: 'name', sortable: true },
+        { name: 'email', label: 'Email', field: 'email', sortable: true },
+        { name: 'address', label: 'Address', field: 'address' },
         { name: 'actions', label: 'Actions' }
       ],
       clients: [],
@@ -52,10 +49,13 @@ export default {
   },
   methods: {
     fetchClients() {
-      this.$axios.get('http://154.49.137.28:8080/listClients').then(response => this.clients = response.data).catch(err => console.log(err));
+
+      this.$axios.get('http://' + ip + ':3000/api/users').then(response => this.clients = response.data
+      ).catch(err => console.log(err));
+      console.log(this.clients)
     },
     deleteClient(id: number) {
-      this.$axios.delete('http://154.49.137.28:8080/deleteClient/' + id).then(response => {
+      this.$axios.delete('http://' + ip + ':3000/api/user' + id).then(response => {
         console.log(response);
         this.fetchClients();
         this.$q.notify({

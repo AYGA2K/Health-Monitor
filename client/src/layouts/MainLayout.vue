@@ -37,11 +37,6 @@ const linksList = [
     icon: 'person',
     link: '/'
   },
-  {
-    title: 'Add a client',
-    icon: 'person_add',
-    link: '/add-client'
-  },
 ];
 
 export default defineComponent({

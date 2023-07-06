@@ -17,13 +17,15 @@ import (
 
 type User struct {
 	// This is not the model, more like a serializer
-	ID    uint   `json:"id"`
-	Name  string `json:"name"`
-	Email string `json:"email" gorm:"unique"`
+	ID      uint   `json:"id"`
+	Name    string `json:"name"`
+	Email   string `json:"email" gorm:"unique"`
+	Mac     string `json:"mac"`
+	Address string `json:"address"`
 }
 
 func CreateResponseUser(user models.User) User {
-	return User{ID: user.ID, Name: user.Name, Email: user.Email}
+	return User{ID: user.ID, Name: user.Name, Email: user.Email, Mac: user.Mac, Address: user.Address}
 }
 
 func SignUp(c *fiber.Ctx) error {
