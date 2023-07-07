@@ -22,6 +22,8 @@ The web application is built using the Quasar Framework, a high-performance Vue.
 <div style="display:flex; justify-content:center;">
 <img src="https://raw.githubusercontent.com/AYGA2K/Health-Monitor/main/Screenshots/Screenshot_2023-07-07-20-21-24_1920x1080.png" alt="Alt Text" width="250" height="500">
 <img src="https://github.com/AYGA2K/Health-Monitor/blob/main/Screenshots/Screenshot_2023-07-07-20-22-51_1920x1080.png?raw=true" alt="Alt Text" width="250" height="500">
+<img src="https://github.com/AYGA2K/Health-Monitor/blob/main/Screenshots/Screenshot_2023-07-07-20-23-52_1920x1080.png?raw=true" alt="Alt Text" width="250" height="500">
+
 </div>
 
 The mobile application is also developed using the Quasar Framework. 
