@@ -19,7 +19,7 @@ This project is a Health Monitoring Application developed using the Quasar Frame
 The web application is built using the Quasar Framework, a high-performance Vue.js-based framework for building responsive Single Page Applications (SPAs). The application provides a user-friendly interface for managing user accounts and accessing health data.
 
 ## Mobile Application
-<img src="[image.jpg](https://raw.githubusercontent.com/AYGA2K/Health-Monitor/main/Screenshots/Screenshot_2023-07-07-20-21-24_1920x1080.png)" alt="Alt Text" width="400" height="200">
+<img src="https://raw.githubusercontent.com/AYGA2K/Health-Monitor/main/Screenshots/Screenshot_2023-07-07-20-21-24_1920x1080.png" alt="Alt Text" width="400" height="200">
 ![ScreenShot1](https://raw.githubusercontent.com/AYGA2K/Health-Monitor/main/Screenshots/Screenshot_2023-07-07-20-21-24_1920x1080.png)
 ![ScrenShot2](https://github.com/AYGA2K/Health-Monitor/blob/main/Screenshots/Screenshot_2023-07-07-20-22-51_1920x1080.png?raw=true)
 
