@@ -2,7 +2,6 @@ package main
 
 import (
 	"log"
-
 	"fst/project/database"
 	"fst/project/routes"
 	"github.com/gofiber/contrib/websocket"

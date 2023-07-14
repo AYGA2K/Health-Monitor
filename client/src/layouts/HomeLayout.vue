@@ -1,24 +1,34 @@
 <template>
   <q-layout view=" hHh lPr fFf">
-
     <q-header class="">
-      <q-toolbar :class="{ 'text-white': $q.dark.isActive, 'text-dark': !$q.dark.isActive }">
-        <q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
+      <q-toolbar
+        :class="{
+          'text-white': $q.dark.isActive,
+          'text-dark': !$q.dark.isActive,
+        }"
+      >
+        <q-btn
+          flat
+          dense
+          round
+          icon="menu"
+          aria-label="Menu"
+          @click="toggleLeftDrawer"
+        />
 
-        <q-toolbar-title>
-          The App
-        </q-toolbar-title>
-
+        <q-toolbar-title> The App </q-toolbar-title>
+        <q-btn flat round dense icon="logout" @click="Logout" />
       </q-toolbar>
-
     </q-header>
     <q-drawer class="bg-transparent" v-model="leftDrawerOpen" show-if-above>
       <q-list>
-        <q-item-label header>
-          Explore
-        </q-item-label>
+        <q-item-label header> Explore </q-item-label>
 
-        <EssentialLink v-for="link in essentialLinks" :key="link.title" v-bind="link" />
+        <EssentialLink
+          v-for="link in essentialLinks"
+          :key="link.title"
+          v-bind="link"
+        />
         <q-item clickable @click="toggleDarkMode()" class="fixed-bottom">
           <q-item-section avatar>
             <q-icon name="dark_mode" />
@@ -41,17 +51,19 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import EssentialLink from 'components/EssentialLink.vue';
-import { useQuasar } from 'quasar'
+import { useQuasar } from 'quasar';
+import { LogInState } from 'src/router/logIn';
+import { useRouter } from 'vue-router';
 const linksList = [
   {
     title: 'Home',
     icon: 'person',
-    link: '/'
+    link: '/',
   },
   {
     title: 'Something',
     icon: 'person_add',
-    link: ''
+    link: '',
   },
 ];
 
@@ -59,34 +71,37 @@ export default defineComponent({
   name: 'MainLayout',
 
   components: {
-    EssentialLink
+    EssentialLink,
   },
 
   setup() {
-    const $q = useQuasar()
-    const leftDrawerOpen = ref(false)
+    const router = useRouter();
+    const $q = useQuasar();
+    const leftDrawerOpen = ref(false);
+    function Logout() {
+      LogInState.isLogedIn = false;
+      router.push('/sign-in');
+    }
     function toggleDarkMode() {
-
-
       // get status
-      console.log($q.dark.isActive) // true, false
+      console.log($q.dark.isActive); // true, false
 
       // get configured status
-      console.log($q.dark.mode) // "auto", true, false
-
+      console.log($q.dark.mode); // "auto", true, false
 
       // toggle
-      $q.dark.toggle()
+      $q.dark.toggle();
     }
     return {
       essentialLinks: linksList,
       leftDrawerOpen,
       toggleDarkMode,
+      Logout,
       toggleLeftDrawer() {
-        leftDrawerOpen.value = !leftDrawerOpen.value
-      }
-    }
-  }
+        leftDrawerOpen.value = !leftDrawerOpen.value;
+      },
+    };
+  },
 });
 </script>
-<style  lang="scss"></style>
+<style lang="scss"></style>
