@@ -1,9 +1,10 @@
 package main
 
 import (
-	"log"
 	"fst/project/database"
 	"fst/project/routes"
+	"log"
+
 	"github.com/gofiber/contrib/websocket"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"

@@ -2,12 +2,11 @@ package routes
 
 import (
 	"errors"
+	"fst/project/database"
+	"fst/project/models"
 	"log"
 	"os"
 	"time"
-
-	"fst/project/database"
-	"fst/project/models"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/golang-jwt/jwt/v4"
@@ -39,7 +38,6 @@ func SignUp(c *fiber.Ctx) error {
 		panic(err)
 	}
 	user.Password = string(hashedPassword)
-
 	res := database.Database.Db.Create(&user)
 	if res.Error != nil {
 		return c.Status(500).JSON(res.Error.Error())
@@ -71,6 +69,7 @@ func findUser(id int, user *models.User) error {
 	}
 	return nil
 }
+
 func GenerateJWT(token_type string, user User, expiry time.Duration) (string, error) {
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
 		"id":    user.ID,
